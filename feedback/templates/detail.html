@@ -1,0 +1,51 @@
+
+
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Page Content -->
+    <div class="container" style="
+    margin-top: 60px;
+">
+
+      <!-- Portfolio Item Heading -->
+      <h1 class="my-4">{{ company.name }}
+      </h1>
+
+      <!-- Portfolio Item Row -->
+      <div class="row">
+
+        <div class="col-md-8" height="350" width="900">
+          <img class="img-fluid" href="/{{ company.id }}" src="{{ company.company_pic.url }}" alt="{{ company.name }}" >
+        </div>
+
+        <div class="col-md-4">
+          <h3 class="my-3">Company Description</h3>
+          <p>{{ company.description }}</p>
+          <h3 class="my-3">Employee : {{ company.employee.get_full_name }}</h3>
+            <a class="btn btn-primary" href="/reviews/{{ company.id }}" >View Company Reviews</a>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+      <!-- Related Projects Row -->
+      <h3 class="my-4">Related Companies</h3>
+
+      <div class="row">
+
+          {% for relatedCompany in company_list %}
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="/{{ relatedCompany.id }}">
+            <img class="img-fluid" src="{{ relatedCompany.company_pic.url }}" alt="" href="/{{ relatedCompany.id }}">
+          </a>
+        </div>
+          {% endfor %}
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+
+{% endblock content %}

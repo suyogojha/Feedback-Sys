@@ -1,0 +1,79 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <title>{% block head_title %}Customer Feedback{% endblock head_title %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/feedback/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/feedback/css/font-awesome.css">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/feedback/css/shop-homepage.css" rel="stylesheet">
+    <link href="../static/feedback/js/jquery.bxslider/jquery.bxslider.css" rel="stylesheet">
+<link href="../static/feedback/css/colorbox.css" rel="stylesheet">
+
+    <link href="../static/feedback/css/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'feedback/css/bootstrap.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&amp;subset=latin-ext" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <p>Hi, {{ employee }},</p><br />
+        <p> A customer has added the following review for {{ company.name }}  </p>
+     <table >
+         <tr>
+             <th>
+                 Name :
+             </th>
+             <td>
+                 {{ first_name }} {{ last_name }}
+             </td>
+         </tr>
+          <tr>
+             <th>
+                 Comment :
+             </th>
+             <td>
+                 {{ comment }}
+             </td>
+         </tr>
+     </table>
+        <a class="btn btn-primary" href="http://127.0.0.1:8000/reviews/{{ company.id }}">View All Reviews</a>
+
+    </div>
+
+ <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Customer Feedback 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../static/feedback/js/jquery.min.js"></script>
+    <script src="../static/feedback/js/popper.min.js"></script>
+    <script src="../static/feedback/js/bootstrap.min.js"></script>
+    <script src="../static/feedback/js/jquery.bxslider/jquery.bxslider.min.js"></script>
+    <script src="../static/feedback/js/jackmoore-colorbox-0662982/jquery.colorbox-min.js"></script>
+    <script src="../static/feedback/js/app.js"></script>
+
+</body>
+</html>

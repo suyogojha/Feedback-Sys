@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <!-- Page Content -->
+    <div class="container" style="
+    margin-top: 20px;
+    margin-bottom: 60px;
+">
+
+        <div class="row">
+
+            <div class="col-lg-3">
+
+                <h1 class="my-4">Home</h1>
+                <div class="list-group">
+
+                    {% for company in companies %}
+                        <div class="list-group-item">
+
+                            <a href="/{{ company.id }}" class="">{{ company.name }}</a>
+                            <p class="card-text">{{ company.tag_line | truncatechars:40 }}</p>
+
+                        </div>
+
+                    {% endfor %}
+                </div>
+
+            </div>
+            <!-- /.col-lg-3 -->
+
+            <div class="col-lg-9">
+
+
+
+                <div class="row">
+
+                    {% for company in companies %}
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="{{ company.company_pic.url }}" alt=""
+                                                 height="250" width="700"></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="/{{ company.id }}">{{ company.name }}</a>
+                                    </h4>
+                                    {% if company.feedback_set.all %}
+                                        <div class="reviews" style="margin-bottom: 0px">
+                                            {% for review in company.feedback_set.all %}
+
+
+                                                <p style="text-align: center; margin-bottom: 0px">
+                                                <b style="color: black">{{ review.first_name }}</b><br>
+                                                {{ review.comment }}<br/>
+
+
+                                            {% endfor %}
+
+                                        </div>
+                                        <a class="btn btn-primary" href="/reviews/{{ company.id }}">View All Reviews</a>
+                                    {% else %}
+                                        <p style="font-style: italic; padding: 32px;"><i>This company is yet to have any feedback</i></p>
+                                        <a id="CustomerReviewButton" class="btn btn-primary" href="/reviews/create_review/{{ company.id }}">Add A Review</a>
+                                    {% endif %}
+
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+
+                    <!-- /.row -->
+                </div>
+
+            </div>
+        </div>
+            <!-- /.col-lg-9 -->
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    </div>
+{% endblock %}

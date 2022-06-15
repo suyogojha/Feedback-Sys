@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{%  block content %}
+
+    <div class="center-container">
+	<!--//header-->
+	<div class="main-content-agile">
+		<div class="sub-main-w3 border shadow-lg p-3 mb-5 bg-white rounded">
+			<div class="wthree-pro">
+                {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+                {% endif %}
+            {% if next %}
+            {% if user.is_authenticated %}
+                <p>Your account doesn't have access to this page. To proceed,
+            please login with an account that has access.</p>
+            {% else %}
+            <h3><span class="label label-default" style="color:#343a40">Welcome</span></h3>
+                {% endif %}
+            {% endif %}
+			</div>
+			<form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+				<div class="form-group row">
+					<label for="id_username" align="left">Email Address/Username</label>
+					<input placeholder="E-mail" name="username" required id="id_username" class="user form-control" type="text">
+					<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+				</div>
+				<div class="form-group row">
+				    <label for="id_password" align="left">Password</label>
+					<input  placeholder="Password" id="id_password" name="password" class="pass form-control" type="password" required="">
+				</div>
+				<div class="sub-w3l">
+					<a class="btn btn-danger forgot-sub" href="{% url 'password_reset' %}">Forgot Password?</a> 
+					<input type="submit" class="btn btn-success submit-sub" value="Login">
+					
+				</div>
+				<input type="hidden" name="next" value="{{ next }}" />
+			</form>
+		</div>
+	</div>
+	<!--//main-->
+	<!--footer-->
+	<div class="footer">
+		<p>&copy; Customer Feedback System 2021. All rights reserved</p>
+	</div>
+	<!--//footer-->
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

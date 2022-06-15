@@ -1,0 +1,301 @@
+/*    Colorbox Core Style:    The following CSS is consistent between example themes and should not be altered.*/
+
+#colorbox, #cboxOverlay, #cboxWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    overflow: visible;
+}
+
+#cboxOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+#cboxMiddleLeft, #cboxBottomLeft {
+    clear: left;
+}
+
+#cboxContent {
+    position: relative;
+}
+
+#cboxLoadedContent {
+    overflow: hidden !important; /*fix if double scroll bars*/
+    -webkit-overflow-scrolling: touch;
+}
+
+#cboxTitle {
+    margin: 0;
+}
+
+#cboxLoadingOverlay, #cboxLoadingGraphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+    cursor: pointer;
+}
+
+.cboxPhoto {
+    float: left;
+    margin: auto;
+    border: 0;
+    display: block;
+    max-width: none;
+    -ms-interpolation-mode: bicubic;
+}
+
+.cboxIframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+    -webkit-border-radius: 0 0 15px 15px;
+    border-radius: 0 0 15px 15px;
+}
+
+#colorbox, #cboxContent, #cboxLoadedContent {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+
+    #colorbox:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        bottom: 50px;
+        right: 9px;
+        width: 80%;
+        height: 20%;
+        box-shadow: 0 15px 32px rgba(0, 0, 0, 0.7);
+        -webkit-transform: rotate(5deg) skew(7deg);
+        -moz-transform: rotate(5deg) skew(7deg);
+        -ms-transform: rotate(5deg) skew(7deg);
+        -o-transform: rotate(5deg) skew(7deg);
+        transform: rotate(5deg) skew(7deg);
+    }
+/*     User Style:    Change the following styles to modify the appearance of Colorbox.  They are    ordered & tabbed in a way that represents the nesting of the generated HTML.*/
+
+#cboxOverlay { /*background:url(images/overlay.png) repeat 0 0;*/
+    background: rgb(91,109,118); /*fall-back*/
+    background: rgba(91,109,118,0.6);
+}
+
+#colorbox {
+    outline: 0;
+    border: 2px solid rgb(112,205,227);
+    overflow: visible !important;
+    -webkit-border-radius: 0 0 15px 15px;
+    border-radius: 0 0 15px 15px;
+}
+
+#cboxTopLeft {
+    width: 0px;
+    height: 0px;
+    background: none;
+}
+
+#cboxTopRight {
+    width: 0px;
+    height: 0px;
+    background: none;
+}
+
+#cboxBottomLeft {
+    width: 0px;
+    height: 21px;
+    background: none;
+}
+
+#cboxBottomRight {
+    width: 0px;
+    height: 21px;
+    background: none;
+}
+
+#cboxMiddleLeft {
+    width: 0px;
+    background: none;
+}
+
+#cboxMiddleRight {
+    width: 0px;
+    background: none;
+}
+
+#cboxTopCenter {
+    height: 0px;
+    background: none;
+}
+
+#cboxBottomCenter {
+    height: 0px;
+    background: url(images/border.png) 0 -29px repeat-x;
+}
+
+#cboxContent {
+    background: #fff;
+    overflow: visible;
+    -webkit-border-radius: 0 0 15px 15px;
+    border-radius: 0 0 15px 15px;
+}
+
+.cboxIframe {
+    background: none;
+}
+
+#cboxError {
+    padding: 50px;
+    border: 1px solid #ccc;
+}
+
+#cboxLoadedContent {
+    margin-top: 0px;
+}
+
+#cboxTitle {
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    color: #949494;
+}
+
+#cboxCurrent {
+    position: absolute;
+    bottom: 4px;
+    left: 58px;
+    color: #949494;
+}
+
+#cboxLoadingOverlay {
+    background: url(images/loading_background.png) no-repeat center center;
+}
+
+#cboxLoadingGraphic {
+    background: url(images/loading.gif) no-repeat center center;
+}
+/* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+
+#cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    width: auto;
+    background: none;
+}
+    /* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+
+    #cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {
+        outline: 0;
+    }
+
+#cboxSlideshow {
+    position: absolute;
+    bottom: 4px;
+    right: 30px;
+    color: #0092ef;
+}
+
+#cboxPrevious {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(images/controls.png) no-repeat -75px 0;
+    width: 25px;
+    height: 25px;
+    text-indent: -9999px;
+}
+
+    #cboxPrevious:hover {
+        background-position: -75px -25px;
+    }
+
+#cboxNext {
+    position: absolute;
+    bottom: 0;
+    left: 27px;
+    background: url(images/controls.png) no-repeat -50px 0;
+    width: 25px;
+    height: 25px;
+    text-indent: -9999px;
+}
+
+    #cboxNext:hover {
+        background-position: -50px -25px;
+    }
+
+#cboxClose {
+    position: absolute;
+    top: -19px;
+    right: -19px;
+    background: url(/media/Assets/close.png) no-repeat 0 0;
+    width: 38px;
+    height: 38px;
+    text-indent: -9999px;
+}
+/*  The following fixes a problem where IE7 and IE8 replace a PNG's alpha transparency with a black fill  when an alpha filter (opacity change) is set on the element or ancestor element.  This style is not applied to or needed in IE9.  See: http://jacklmoore.com/notes/ie-transparency-problems/*/
+
+.cboxIE #cboxTopLeft, .cboxIE #cboxTopCenter, .cboxIE #cboxTopRight, .cboxIE #cboxBottomLeft, .cboxIE #cboxBottomCenter, .cboxIE #cboxBottomRight, .cboxIE #cboxMiddleLeft, .cboxIE #cboxMiddleRight {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+    #MainContent table {
+        overflow-y: scroll !important;
+        -webkit-overflow-scrolling: touch;
+        display: block;
+    }
+}
+
+#MainContent table {
+    overflow-x: hidden;
+}
+
+
+@media only screen and (max-device-width: 1024px) and (min-device-width: 768px){
+#colorbox,#cboxWrapper,#cboxContent,#cboxLoadedContent,#cboxLoadedContent frame,.bx-wrapper,.bx-viewport {
+    left: 0 !important;
+    margin: 0 auto !important;
+    right: 0 !important;
+    width: 100% !important;
+    float:none !important;
+	overflow:scroll !important;
+  
+	
+}
+	.popupBody .padding-30.slidesPreview.bottom.rounded{
+	padding:0px !important;
+	}
+	.popupBody #slidercontrols,.popupBody .bx-controls{
+	display:none;
+	}
+	.popupBody .slide{
+   width: 460px !important;
+   background-repeat:no-repeat;
+
+	}
+	.popupBody .slide img{
+ 
+   background-repeat:no-repeat;
+
+	}
+}
+
+
+
+
+
+
+
+

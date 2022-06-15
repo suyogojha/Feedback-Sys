@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <ul>
+    {% for employee in employees %}
+        <li>{{ employee.get_full_name }}</li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}

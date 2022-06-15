@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+
+    <title>{% block head_title %}Customer Feedback{% endblock head_title %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'feedback/css/bootstrap.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'feedback/css/font-awesome.css' %}">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'feedback/css/shop-homepage.css' %}" rel="stylesheet">
+    <link href="{% static 'feedback/js/jquery.bxslider/jquery.bxslider.css' %}" rel="stylesheet">
+    <link href="{% static 'feedback/css/colorbox.css' %}" rel="stylesheet">
+
+    <link href="{% static 'feedback/css/style.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'feedback/css/bootstrap.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+          rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&amp;subset=latin-ext"
+          rel="stylesheet">
+
+</head>
+<body>
+
+<div class="row">
+    <div class="padding-30 popup">
+        <h4 style="color: #007bff">Add a Review</h4>
+        <p>Please provide some feedback on your experience working with {{ company }}. Help us provide better services.</p>
+        <table class="popupTable" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%"
+               style="background: white">
+            <form id="SubmitReviewForm" action="" method="post">
+
+                <tr>
+                    <td>
+
+
+
+                        {% csrf_token %}
+                        {{ form }}
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="SubmitReviewButton" data-id="{{ company.id }}" type="submit" class="btn btn-primary" value="Submit"/></td>
+                </tr>
+            </form>
+        </table>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'feedback/js/jquery.min.js' %}"></script>
+<script src="{% static 'feedback/js/popper.min.js' %}"></script>
+<script src="{% static 'feedback/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'feedback/js/jquery.bxslider/jquery.bxslider.min.js' %}"></script>
+<script src="{% static 'feedback/js/jackmoore-colorbox-0662982/jquery.colorbox-min.js' %}"></script>
+<script src="{% static 'feedback/js/app.js' %}"></script>
+</body>
+</html>

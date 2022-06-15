@@ -1,0 +1,6 @@
+<script type="text/javascript">
+Morris.Donut({
+  element: '{{ chart.get_html_id }}',
+  data: {{ chart.get_data_json|safe }}
+});
+</script>

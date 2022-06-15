@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <!-- /.col-lg-3 -->
+
+            <div class="col-lg-12">
+
+                <div class="card mt-4">
+                    <table>
+                        <tr>
+                            <td style="width: 30%">
+                                <img class="card-img-top img-fluid" src="{{ company.company_pic.url }}" alt=""
+                                     max-height="400" max-width="900">
+                            </td>
+                            <td style="width: 70%;padding: 0px 10px 0px 20px;vertical-align: top;">
+                                <h3 class="card-title">{{ company.name }}</h3>
+                                <p class="card-text">{{ company.description }}</p>
+                                <div style="    position: absolute;
+    bottom: 30px;
+    right: 215px;"><span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+                                    4.0 stars
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="card-body">
+
+                    </div>
+                </div>
+                <!-- /.card -->
+
+                <div class="card card-outline-secondary my-4">
+                    <div class="card-header">
+                        Company Reviews
+                    </div>
+                    <div class="card-body">
+                        {% for review in company.feedback_set.all %}
+                            <p>{{ review.comment }}</p>
+                            <small class="text-muted">Posted by {{ review.first_name }}
+                                on {{ review.timestamp.date }}</small>
+                            <hr>
+                        {% endfor %}
+               <!--end .accordion-section-->
+                    </div>
+                </div>
+            </div>
+        <!-- /.col-lg-9 -->
+
+    </div>
+    <div class="row" style="
+    padding-bottom: 20px;
+">
+        <div class="col-lg-12" style="padding-left: 245px">
+                 <div class="accordion">
+                            <div class="accordion-section">
+                                <a class="accordion-section-title btn btn-primary" href="#accordion-1"
+                                   class="btn btn-primary">Leave a Review</a>
+                                <div id="accordion-1" class="accordion-section-content">
+                                    <form id="SubmitReviewForm" action="" method="post">
+                                        <table class="table">
+
+                                        <tr>
+                                                {% csrf_token %}
+                                                {{ form.non_field_errors }}
+                                                <div class="form-group col-md-12">
+                                                    <td>
+                                                    {{ form.first_name.errors }}
+                                                    <label for="{{ form.first_name.id_for_label }}">First Name:</label>
+
+                                                </td>
+                                                    </div>
+                                        </tr>
+                                            <tr>
+                                                  <div class="form-group col-md-12">
+                                            <td>
+                                                    {{ form.first_name }} {{ form.last_name }}
+
+                                            </td>
+                                                  </div>
+
+                                        </tr>
+                                            <tr>
+
+                                                <div class="form-group">
+                                                    <td>
+                                                    {{ form.phone_number.errors }}
+                                                    <label for="{{ form.phone_number.id_for_label }}">Phone Number:</label>
+                                                    </td>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                 <td>
+                                                        {{ form.phone_number }}
+                                                    </td>
+                                            </tr>
+                                            <tr>
+
+                                                <div class="form-group">
+                                                    <td>
+                                                    {{ form.comment.errors }}
+                                                    <label for="{{ form.comment.id_for_label }}">Comment</label>
+                                                    </td>
+
+                                                </div>
+
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                        {{ form.comment }}
+                                                    </td>
+                                            </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="SubmitReviewButtonOnReviewsPage" class="btn btn-primary"
+                                                       data-id="{{ company.id }}" type="submit" value="Submit"/></td>
+                                        </tr>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div><!--end .accordion-section-content-->
+                        </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock content %}
